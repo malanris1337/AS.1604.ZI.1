@@ -23,7 +23,7 @@
     <ProjectGuid>{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MARKINAVishL1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
