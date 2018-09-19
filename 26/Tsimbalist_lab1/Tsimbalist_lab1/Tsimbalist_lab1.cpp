@@ -71,25 +71,32 @@ void netsim( char * mas[])
 	fout.close();
 }
 int main(int argc, char* argv[])
-{
-	while (1)
+{ 
+	if (argc < 4) {
+		cout << "eror" << endl;
+		return 1;
+	}
+	else
 	{
-		switch (menu())
+		while (1)
 		{
-		case 1:
-		{
-			tsim( argv);
-			break;
-		}
-		case 2:
-		{
-			netsim( argv);
-			break;
-		}
-		default:
-		{
-			return 0;
-		}
+			switch (menu())
+			{
+			case 1:
+			{
+				tsim(argv);
+				break;
+			}
+			case 2:
+			{
+				netsim(argv);
+				break;
+			}
+			default:
+			{
+				return 0;
+			}
+			}
 		}
 	}
     return 0;
