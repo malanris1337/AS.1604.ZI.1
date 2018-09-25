@@ -18,7 +18,7 @@ void Encode(char* k, char* t)
 	while (!fin.eof())
 	{
 		char kk;
-		fin >> kk;
+		kk = fin.get();
 		key.push_back(kk);
 	}
 	key.erase(key.end() - 1);
@@ -28,7 +28,7 @@ void Encode(char* k, char* t)
 	while (!fin.eof())
 	{
 		char kk;
-		fin >> kk;
+		kk = fin.get();
 		txt.push_back(kk);
 	}
 	txt.erase(txt.end() - 1);
@@ -60,7 +60,7 @@ void Decode(char* k)
 	while (!fin.eof())
 	{
 		char kk;
-		fin >> kk;
+		kk = fin.get();
 		key.push_back(kk);
 	}
 	key.erase(key.end() - 1);
@@ -70,7 +70,7 @@ void Decode(char* k)
 	while (!fin.eof())
 	{
 		char kk;
-		fin >> kk;
+		kk = fin.get();
 		txt.push_back(kk);
 	}
 	txt.erase(txt.end() - 1);
