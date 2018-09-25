@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MARKINAVishL1", "MARKINAVishL1\MARKINAVishL1.vcxproj", "{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Debug|x64.ActiveCfg = Debug|x64
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Debug|x64.Build.0 = Debug|x64
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Debug|x86.ActiveCfg = Debug|Win32
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Debug|x86.Build.0 = Debug|Win32
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Release|x64.ActiveCfg = Release|x64
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Release|x64.Build.0 = Release|x64
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Release|x86.ActiveCfg = Release|Win32
+		{DBEB3B9D-EC57-41C0-A36C-3D6465C30F33}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DC68DA0-B535-43BF-B2CA-FAEA775FD4EF}
+	EndGlobalSection
+EndGlobal
