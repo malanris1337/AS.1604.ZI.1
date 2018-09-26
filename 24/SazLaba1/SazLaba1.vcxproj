@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9B6E0FD6-9A6E-42AC-A3F3-B2715B1A8F88}</ProjectGuid>
+    <ProjectGuid>{B090DB10-55A2-499E-8A1C-1E202F4C0F76}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Sazonovlab1</RootNamespace>
+    <RootNamespace>SazLaba1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,7 +151,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sazonovlab1.cpp" />
+    <ClCompile Include="SazLaba1.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
