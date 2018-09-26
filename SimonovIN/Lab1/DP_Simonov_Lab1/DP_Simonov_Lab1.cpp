@@ -45,7 +45,7 @@ void decode(vector<char> key, char* b, char* c)
 	fin.open(b);
 	while (!fin.eof())
 	{
-		fin >> s;
+		s = fin.get;
 		text.push_back(s);
 	}
 	text.erase(text.end() - 1);
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 	fin.open(argv[1]);
 	while (!fin.eof())
 	{
-		fin >> s;
+		s = fin.get;
 		key.push_back(s);
 	}
 	key.erase(key.end() - 1);
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 	fin.open(argv[2]);
 	while (!fin.eof())
 	{
-		fin >> s;
+		s = fin.get;
 		text.push_back(s);
 	}
 	text.erase(text.end() - 1);
