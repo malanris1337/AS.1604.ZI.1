@@ -29,7 +29,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MalyshevMAS1604ZLab1.cpp">
+    <ClCompile Include="ZaharovaV.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
