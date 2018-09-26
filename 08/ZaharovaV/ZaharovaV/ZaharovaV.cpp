@@ -1,4 +1,4 @@
-﻿// ZaharovaV.cpp: определяет точку входа для консольного приложения.
+﻿// ZaharovaV.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
@@ -10,30 +10,29 @@
 #include <ostream> 
 using namespace std;
 
-vector< char>  text(string name) {
+vector<unsigned char>  text(string name) {
 	char m;
-	vector<char> v;
+	vector<unsigned char> v;
 	ifstream file(name);
 	if (file.is_open())
 	{
+		m = file.get();
 		while (!file.eof())
 		{
-			m = file.get();
 			v.push_back(m);
+			m = file.get();
 		}
 		file.close();
 	}
 	else cout << "Не удается открыть файл";
-	for (int i = 0; i < v.size() - 1; i++) {
-		cout << v[i] ;
-	}
+	
 	return v;
 }
 
-vector<char>  coding(vector< char> text, vector<char> key, string name) {
-	int k = text.size()-1;
-	int n = key.size()-1;
-	vector< char> sh;
+vector<unsigned char>  coding(vector<unsigned char> text, vector<unsigned char> key, string name) {
+	int k = text.size() ;
+	int n = key.size() ;
+	vector<unsigned char> sh;
 	char l;
 	int j = 0;
 	for (int i = 0; i < k; i++)
@@ -42,12 +41,11 @@ vector<char>  coding(vector< char> text, vector<char> key, string name) {
 		{
 			j = 0;
 		}
-		
-		l = (text[i] + key[j]) % 255;
+
+		l = (text[i] + key[j]) % 256;
 		sh.push_back(l);
-		cout << l;
 		j++;
-		
+
 	}
 	ofstream fout;
 	fout.open(name);
@@ -55,26 +53,24 @@ vector<char>  coding(vector< char> text, vector<char> key, string name) {
 		fout << sh[i];
 	}
 	fout.close();
-	cout << endl;
 	return sh;
 }
 
-vector<char>  decoding(vector< char> text, vector<char> key,string name) {
-	int k = text.size()-1;
-	int n = key.size()-1;
-	vector<char> insh;
+vector<unsigned char>  decoding(vector<unsigned char> text, vector<unsigned char> key, string name) {
+	int k = text.size();
+	int n = key.size();
+	vector<unsigned char> insh;
 	char l;
 	int j = 0;
 	for (int i = 0; i < k; i++)
 	{
 		if (j >= n)
 			j = 0;
-			l = (text[i] - key[j]) % 255;
-			insh.push_back(l);
-			cout << l;
-			j++;
+		l = (text[i] - key[j]) % 256;
+		insh.push_back(l);
+		j++;
 
-		
+
 	}
 	ofstream fout;
 	fout.open(name);
@@ -86,14 +82,18 @@ vector<char>  decoding(vector< char> text, vector<char> key,string name) {
 }
 
 
-int main(int argc , char *argv[])
+int main(int argc, char *argv[])
 {
-	vector<char> v1, v2;
 	setlocale(LC_ALL, "Russian");
 
-	v1=text(argv[1]);
+	if (argc < 4) {
+		cout << "Не хватает аргументов" << endl;
+		return 0;
+	}
+	vector<unsigned char> v1, v2;
+	v1 = text(argv[1]);
 	v2 = text(argv[2]);
-        while (1) {
+	while (1) {
 		cout << endl;
 		cout << "1: Зашифровать " << endl;
 		cout << "2: Расшифровать" << endl;
@@ -108,10 +108,10 @@ int main(int argc , char *argv[])
 		switch (a)
 		{
 		case 1: {
-			coding(v1, v2,argv[3]);
+			coding(v1, v2, argv[3]);
 			break; }
 		case 2: {
-			decoding(v1, v2,argv[3]);
+			decoding(v1, v2, argv[3]);
 			break; }
 		case 3: {
 			return 0;
