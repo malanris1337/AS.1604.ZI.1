@@ -1,0 +1,11 @@
+5
+Pen
+2
+Pencil
+1
+Notebook
+5
+Diary
+10
+Bag
+50
