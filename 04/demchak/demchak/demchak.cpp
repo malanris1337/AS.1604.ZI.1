@@ -1,85 +1,64 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
+#include <istream>
 
 using namespace std;
 
-string encrypt(string str, string key)
+char enc(char a, char b)
 {
-	string temp = str;
-
-	for (int i = 0; i < str.size(); ++i)
-		temp[i] = ((str[i] - 'a') + (key[i] - 'a')) % 26 + 'a';
-
-	return temp;
+	return (a + b) % 256;
 }
 
-string decrypt(string str, string key)
+char dec(char a, char b)
 {
-	string temp = str;
-
-	for (int i = 0; i < str.size(); ++i)
-		temp[i] = ((str[i] - 'a') - (key[i] - 'a')) % 26 + 'a';
-
-	return temp;
+	return (a - b) % 256;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	string sif, sof, key, ans, str;
-	int q;
+	string in_key, in_text, key, str;
 
-	cout << "input filename: ";
-	cin >> sif;
+	if (argc < 3)
+	{
+		cout << "error";
+		return 0;
+	}
 
-	cout << "output filename: ";
-	cin >> sof;
+	in_key = argv[1];
+	in_text = argv[2];
 
-	cout << "key: ";
-	cin >> key;
+	ifstream fin_key(in_key, ios::binary), fin_text(in_text, ios::binary);
 
-	cout << "decrypt / encrypt (0 / 1): ";
-	cin >> q;
-
-	ifstream fi;
-	fi.open(sif);
-
-	if (!fi.is_open())
+	if (!fin_key.is_open() || !fin_text.is_open())
 	{
 		cout << "input file error" << endl;
 		return 0;
 	}
 
-	ofstream fo;
-	fo.open(sof);
+	ofstream fout_enc("enc.txt", ios::binary), fout_dec("dec.txt", ios::binary);
 
-	if (!fo.is_open())
+	vector < char > vkey((istreambuf_iterator < char > (fin_key)), istreambuf_iterator < char >());
+	vector < char > :: iterator it = vkey.begin();
+
+	while (true)
 	{
-		cout << "output file error" << endl;
-		return 0;
+		char c;
+		fin_text.get(c);
+
+		if (fin_text.eof())
+			break;
+
+		char c1 = enc(c, *it);
+		fout_enc << c1;
+		char c2 = dec(c1, *it);
+		fout_dec << c2;
+
+		it++;
+		if (it == vkey.end())
+			it = vkey.begin();
 	}
-
-	fi >> str;
-	fi.close();
-
-	if (key.size() > str.size())
-		key.resize(str.size());
-	else
-	{
-		int i = key.size();
-		int m = i;
-		key.resize(str.size());
-
-		while (i < str.size())
-		{
-			key[i] = key[(i - m) % m];
-			++i;
-		}
-	}
-
-	q ? ans = encrypt(str, key) : ans = decrypt(str, key);
-	fo << ans;
-	fo.close();
 
 	cout << "successfully" << endl;
 
